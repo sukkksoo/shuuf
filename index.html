@@ -140,7 +140,7 @@ textarea:focus { border-color: var(--accent); }
   border: 1px solid var(--accent2); border-radius: 3px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.75rem; letter-spacing: 0.1em;
-[25/03/2026 17:34] Marco: padding: 0 20px; height: 38px; cursor: pointer;
+  padding: 0 20px; height: 38px; cursor: pointer;
   text-transform: uppercase; transition: all 0.15s;
 }
 .reshuffle-btn:hover { background: var(--accent2); color: #fff; }
@@ -241,7 +241,7 @@ textarea:focus { border-color: var(--accent); }
   <div class="section">
     <div class="section-label">Options</div>
     <div class="controls-row">
-[25/03/2026 17:34] Marco: <div class="control-group">
+      <div class="control-group">
         <label>Combinations to generate</label>
         <div class="number-input-wrap">
           <button class="num-btn" id="btn-minus">&#8722;</button>
@@ -321,6 +321,8 @@ for (var i = 0; i < combos.length; i++) {
 var text = combos[i];
 var card = document.createElement(‘div’);
 card.className = ‘para-card’;
+
+```
   var num = document.createElement('div');
   num.className = 'para-num';
   num.textContent = 'Combination ' + (i + 1) + ' \u00B7 ' + size + ' words';
@@ -347,12 +349,15 @@ card.className = ‘para-card’;
   card.appendChild(cb);
   panel.appendChild(card);
 }
+```
 
 }
 
 function renderResults() {
 var count = lastCount;
 var has24 = wordPool.length >= 24;
+
+```
 var c12 = [];
 for (var i = 0; i < count; i++) c12.push(randomCombo(wordPool, 12));
 
@@ -370,13 +375,14 @@ el('tab24').textContent = has24 ? '24-Word (' + count + ')' : '24-Word (need ' +
 
 el('results').style.display = 'flex';
 el('empty-state').style.display = 'none';
+```
 
 }
 
 function generate() {
 var errEl = el(‘error-msg’);
 errEl.style.display = ‘none’;
-[25/03/2026 17:34] Marco: var words = parseWords(el(‘word-input’).value);
+var words = parseWords(el(‘word-input’).value);
 if (words.length < 12) {
 errEl.textContent = ‘Please enter at least 12 words to generate combinations.’;
 errEl.style.display = ‘block’;
